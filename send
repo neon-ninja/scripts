@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# This script pipes the output of a script into a SMTP telnet session. The templated script should echo and sleep as appropriate.
+
+# Author: Nick Young
+
+if [ $# -lt 2 ]; then
+  echo "Invalid number of parameters. Usage: send [tpl] [email]. Valid tpls:"
+  ls tpl
+  exit 1
+fi
+
+tpl=$1
+shift
+
+for ARG in $*
+do
+  tpl/$tpl $ARG | telnet mailhost.auckland.ac.nz 25
+done
+

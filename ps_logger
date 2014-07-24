@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# This script logs currently running processes and logged in users
+
+# Author: Nick Young
+
+timestamp=`date +%Y-%m-%d_%H-%M-%S`
+ps=`ps -U root -u root -Naf`
+w=`w`
+echo "
+$timestamp
+
+$ps
+$w" >> ps.log 

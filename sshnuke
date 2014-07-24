@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# This script emulates the sshnuke program from the Matrix Reloaded
+
+# Author: Nick Young
+
+if [ $# -lt 2 ]; then
+  echo "Invalid number of parameters. Usage: sshnuke <ip> --rootpw=\"<rootpw>\""
+  exit 1
+fi
+
+pw=$2
+pw=${pw#"--rootpw="}
+
+echo -n "connecting to $1:ssh ... "
+sleep 2
+echo "successful."
+echo -n "attempting to exploit SSHv1 CRC32 ... "
+sleep 5
+echo "successful."
+echo "resetting root password to \"$pw\""
+sleep 2
+echo "system open: Access Level <9>"

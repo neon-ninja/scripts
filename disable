@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# This script emulates the grid node disabling scene from The Matrix Reloaded
+
+# Author: Nick Young
+
+if [ $# -lt 5 ]; then
+  echo "Invalid number of parameters. Usage: disable grid nodes <low> - <high>"
+  exit 1
+fi
+
+low=$3
+high=$5
+echo "Warning: Disabling nodes $low-$high will disconnect sector 11 ($(($high-$low)) nodes)"
+echo ""
+read -p "  ARE YOU SURE? (y/n) "
+echo ""
+
+if [ $REPLY == "y" ];then
+  for i in $(seq $low $high);do
+    sleep 1
+    echo "  Grid Node $i offline..."
+  done;
+fi
+

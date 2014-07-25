@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Clock</title>
+<style>
+  body {
+    background-color:black
+  }
+  #clockDiv {
+    color:red;
+    text-align:center;
+    font-size:100px;
+    line-height: 7em;
+  }
+</style>
+<script type="text/javascript">
+  function checkTime(i) {
+    if (i<10) {
+      i="0" + i;
+    }
+    return i;
+  }
+  function clock() {
+    var now = new Date();
+    var outStr = now.getFullYear()+'-'+(checkTime(now.getMonth()+1))+'-'+checkTime(now.getDate())+' '+checkTime(now.getHours())+':'+checkTime(now.getMinutes())+':'+checkTime(now.getSeconds());
+    document.getElementById('clockDiv').innerHTML=outStr;
+  }
+  setInterval(clock, 1000);
+</script>
+</head>
+
+<body onload="clock();">
+
+<strong><div id="clockDiv"></div></strong>
+
+</body>
+</html>

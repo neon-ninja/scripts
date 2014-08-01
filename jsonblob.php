@@ -5,6 +5,7 @@ require_once("settings.php");
 // This stops CORS issues
 header("access-control-allow-origin: *");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, X-Jsonblob, Allow");
+header("Access-Control-Expose-Headers: X-Jsonblob");
 header("Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS");
 
 $METHOD = $_SERVER['REQUEST_METHOD'];

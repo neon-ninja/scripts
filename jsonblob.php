@@ -13,7 +13,9 @@ function generateRandomString($length = 10) {
     return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
 }
 
-if ($METHOD=='GET') {
+if ($METHOD=='OPTIONS') {
+  header("GET,POST,PUT,DELETE,OPTIONS");
+} else if ($METHOD=='GET') {
   if (empty($_GET['id'])) {
     http_response_code(400);
     print "Blob ID cannot be empty";

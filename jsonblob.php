@@ -45,6 +45,7 @@ if ($METHOD=='OPTIONS') {
   $location = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . "?id=$id";
   header("Location: $location");
   header("X-Jsonblob: $id");
+  echo $id;
 } else if ($METHOD=='PUT') {
   if (empty($_GET['id'])) {
     http_response_code(400);
@@ -63,6 +64,8 @@ if ($METHOD=='OPTIONS') {
   http_response_code(201);
   $location = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
   header("Location: $location");
+  header("X-Jsonblob: $id");
+  echo $id;
 } else if ($METHOD=='DELETE') {
   if (empty($_GET['id'])) {
     http_response_code(400);
@@ -74,6 +77,7 @@ if ($METHOD=='OPTIONS') {
   if ($db->affected_rows==0) {
     http_response_code(404);
   }
+  echo "Deleted";
 } else {
   http_response_code(405);
   echo "METHOD NOT ALLOWED";

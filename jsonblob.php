@@ -14,7 +14,7 @@ function generateRandomString($length = 10) {
 }
 
 if ($METHOD=='OPTIONS') {
-  header("GET,POST,PUT,DELETE,OPTIONS");
+  header("Allow: GET,POST,PUT,DELETE,OPTIONS");
 } else if ($METHOD=='GET') {
   if (empty($_GET['id'])) {
     http_response_code(400);

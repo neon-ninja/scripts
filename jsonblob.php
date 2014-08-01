@@ -31,6 +31,7 @@ if ($METHOD=='OPTIONS') {
     die;
   }
   http_response_code(200);
+  header("Content-Type: application/json");
   print $result->fetch_row()[0];
 } else if ($METHOD=='POST') {
   $id = generateRandomString();

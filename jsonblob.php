@@ -41,6 +41,7 @@ if ($METHOD=='GET') {
   http_response_code(201);
   $location = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . "?id=$id";
   header("Location: $location");
+  header("X-jsonblob: $id");
 } else if ($METHOD=='PUT') {
   if (empty($_GET['id'])) {
     http_response_code(400);

@@ -5,7 +5,6 @@ require_once("settings.php");
 // This stops CORS issues
 header("access-control-allow-origin: *");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-header('Content-type: application/json');
 
 $METHOD = $_SERVER['REQUEST_METHOD'];
 $REQUEST_BODY = file_get_contents("php://input");

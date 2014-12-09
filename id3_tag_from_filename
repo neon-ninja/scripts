@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # This script sets the ID3 tags for mp3 files in the current directory, based on their filename.
 # Filenames should be in the format Artist - Title.mp3

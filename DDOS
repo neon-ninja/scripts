@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# This script repeatedly makes requests to the target
+
+if [ $# -lt 1 ]; then
+  echo "Specify target"
+  exit 1
+fi
+
+target=$1
+
+while true; do
+  curl -I $target>/dev/null
+  echo tick
+done

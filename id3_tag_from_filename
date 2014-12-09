@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# This script sets the ID3 tags for mp3 files in the current directory, based on their filename.
+# Filenames should be in the format Artist - Title.mp3
+# There should be a jpg in the folder called folder.jpg, which will be attached to the images
+
+# Author: Nick Young
+
+eyeD3 --remove-all *.mp3
+
+album=24
+albumArtist="Various Artists"
+year=2014
+
+for f in *.mp3;do
+  f=${f%.mp3}
+  IFS=- read artist title <<< $f
+  artist=$(echo $artist)
+  title=$(echo $title)
+  eyeD3 --artist="$artist" --album="$album" --album-artist="$albumArtist" --title="$title" --release-year=$year --add-image=folder.jpg:FRONT_COVER "$f.mp3"
+done
+
+eyeD3 --to-v2.3 *.mp3

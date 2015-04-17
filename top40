@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+# This script prints the NZ Top 40 to the command line in the format Artist - Title
+# Requires requests and BeautifulSoup - pip install requests BeautifulSoup
+
+import requests
+from bs4 import BeautifulSoup
+
+r = requests.get("http://nztop40.co.nz")
+soup = BeautifulSoup(r.content)
+entries = soup.find_all(class_="p_title_artist")
+
+for e in entries:
+    title = e.find(class_="p_title")
+    artist = e.find(class_="p_artist")
+    print "{} - {}".format(artist.text, title.text)

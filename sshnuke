@@ -5,12 +5,12 @@
 # Author: Nick Young
 
 if [ $# -lt 2 ]; then
-  echo "Invalid number of parameters. Usage: sshnuke <ip> --rootpw=\"<rootpw>\""
+  echo "Invalid number of parameters. Usage: sshnuke <ip> -rootpw=\"<rootpw>\""
   exit 1
 fi
 
 pw=$2
-pw=${pw#"--rootpw="}
+pw=${pw#"-rootpw="}
 
 echo -n "connecting to $1:ssh ... "
 sleep 2
